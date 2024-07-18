@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" th:href="@{/css/addgame.css}" type="text/css"/>
+</head>
+
+<body>
+<div class="account">
+    <a th:href="@{/account}" method="GET">Account</a>
+</div>
+
+<div class="add">
+    <p class="empty" th:if="${emptyList != null}" th:text="${emptyList}"></p>
+    <form th:if="${emptyList == null}" th:action="@{/addgame}"  method="post" class="form">
+        <select class="select" name="game_id">
+            <option class="option" th:each="item, iterStat : ${list}" th:if="${iterStat.index < 10}" th:text="${item.getName()}"  th:value="${item.getSlug()}"/>>
+            </option>
+        </select>
+        <input type="submit">
+    </form>
+</div>
+
+</body>
+
+</html>

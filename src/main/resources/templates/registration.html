@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" th:href="@{/css/registration.css}" type="text/css"/>
+</head>
+
+<body>
+
+<div class="registration">
+    <form th:action="@{/register}" th:object="${user}" method="POST" class="form">
+        <h2>Sign up</h2>
+        <div class="error" th:if="${userexists}">
+            <p th:text="${userexists}"></p>
+        </div>
+        <div class="error" th:if="${emailexists}">
+            <p th:text="${emailexists}"></p>
+        </div>
+        <div class="error" th:if="${param.registrationError}">
+            <p th:text="${param.registrationError}"></p>
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('username')}">
+            <p th:each="err : ${#fields.errors('username')}" th:text="'Username ' + ${err}" />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('password')}">
+            <p th:each="err : ${#fields.errors('password')}" th:text="'Password ' + ${err}" />
+        </div>
+        <div class="error" th:if="${#fields.hasErrors('email')}">
+            <p th:each="err : ${#fields.errors('email')}" th:text="'Please make sure you enter the correct email'" />
+        </div>
+
+        <!-- User name -->
+        <div class="inputBx">
+            <input type="text" th:field="*{username}" placeholder="Username*" />
+        </div>
+
+        <!-- Password -->
+        <div class="inputBx">
+            <input type="text" th:field="*{password}" placeholder="Password*" />
+        </div>
+
+        <!-- Email -->
+        <div class="inputBx">
+            <input type="text" th:field="*{email}" placeholder="Email*" />
+        </div>
+
+
+        <!-- Registration Button -->
+        <div class="inputBx">
+            <input type="submit">Register</input>
+        </div>
+        <div class="links">
+            <a th:href="@{/login}">Sign in</a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

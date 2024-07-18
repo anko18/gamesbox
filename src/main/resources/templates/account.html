@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+    <link rel="stylesheet" th:href="@{/css/account.css}" type="text/css"/>
+</head>
+<body>
+
+<div class="inner">
+    <div class="account">
+        <i></i>
+        <i></i>
+        <div class="account-inner">
+            <h2 class="welcome" th:text="'Welcome, ' + ${username}"/>
+
+            <div class="links">
+                <a th:href="@{/yourlist(page='1')}" method="GET">View games</a>
+                <a th:href="@{/findgame}" method="GET" >Add game</a>
+            </div>
+            <form name="logoutForm" class="logout" th:action="@{/logout}" method="POST" >
+                <input type="submit" value="Sign Out"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

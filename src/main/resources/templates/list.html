@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of your games</title>
+    <link rel="stylesheet" th:href="@{/css/list.css}" type="text/css"/>
+</head>
+<body>
+<div class="account">
+    <a th:href="@{/account}" method="GET">Account</a>
+</div>
+
+<div class="inner">
+    <h2>List of your games:</h2>
+    <p th:if="${emptyList != null}" th:text="${emptyList}" class="empty"></p>
+    <div th:if="${emptyList == null}" class="list">
+        <ul >
+            <li th:each="game : ${games}" th:text="${game}" />
+        </ul>
+    </div>
+    <div th:if="${pages > 0}" class="pagination">
+        <div th:each="pageNumber : ${#numbers.sequence(1, pages)}">
+            <a th:href="@{/yourlist(page=${pageNumber})}"
+               th:text="${pageNumber}" class="page"></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

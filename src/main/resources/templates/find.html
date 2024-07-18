@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Game</title>
+    <link rel="stylesheet" th:href="@{/css/find.css}" type="text/css"/>
+</head>
+<body>
+    <div class="account">
+        <a th:href="@{/account}" method="GET">Account</a>
+    </div>
+
+    <div class="find">
+        <form th:action="@{/listGamesByName}" method="GET" class="form">
+            <div th:if="${result != null}">
+                <p class="result" th:text="${result}"></p>
+            </div>
+            <input type="text" name="name" placeholder="Name of the game?"/>
+            <input type="submit" />
+        </form>
+
+    </div>
+
+
+</body>
+</html>

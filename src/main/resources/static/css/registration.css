@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #111;
+    width: 100%;
+    overflow: hidden;
+}
+
+.registration {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form h2 {
+    font-size: 2em;
+    color: #fff;
+}
+
+.form .inputBx {
+    position: relative;
+    width: 100%;
+}
+.form .inputBx input {
+    position: relative;
+    width: 100%;
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    font-size: 1.2em;
+    color: #fff;
+    box-shadow: none;
+    outline: none;
+}
+.form .inputBx input[type="submit"] {
+    width: 100%;
+    background: linear-gradient(45deg, #ff357a, #fff172);
+    border: none;
+    cursor: pointer;
+}
+.form .inputBx input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+.form .links {
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+}
+.form .links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.form .links a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: #ff9372;
+    text-align: center;
+}
